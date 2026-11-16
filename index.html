@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyBuy - Fresh Groceries Delivered at Your Doorstep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Modern, accessible online grocery shopping app. Farm-fresh fruits, vegetables, dairy, and daily essentials delivered in 10-15 minutes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. TOP UTILITY & ASSISTANCE TOOLBAR (Commercial & Accessible) -->
+  <aside class="a11y-topbar" aria-label="Customer Care and Accessibility Settings">
+    <div class="a11y-topbar-inner">
+      <div class="a11y-left-group">
+        <a href="tel:18000003279" class="helpline-link" title="Call Free Senior Shopping Care Helpline" aria-label="Call senior helpline for free assistance">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-i18n="callHelpBtn">24x7 Senior Shopping Care: 1800-000-EASY</span>
+        </a>
+        <span class="topbar-divider">|</span>
+        <span class="topbar-delivery-promise"><svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Free 10-15 Min Delivery on orders above ₹499</span>
+      </div>
+
+      <div class="a11y-tools-group">
+        <!-- Quick Accessibility Drawer Trigger -->
+        <button type="button" class="btn-pill" id="btn-open-a11y-modal" title="Open Accessibility and Senior Assistance Settings">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="m4.93 10.93 4.24-4.24a4 4 0 0 1 5.66 0l4.24 4.24"/><path d="M8 12h8"/><path d="m14 16 2.5 5"/><path d="m10 16-2.5 5"/></svg>
+          <span data-i18n="a11yMenuBtn">Accessibility Settings</span>
+        </button>
+
+        <!-- Quick Language Dropdown in Bar -->
+        <select id="select-language" class="select-accessible" aria-label="Select website language">
+          <option value="en" selected>English</option>
+          <option value="hi">हिंदी (Hindi)</option>
+          <option value="mr">मराठी (Marathi)</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. STICKY PRODUCTION HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-brand-section">
+        <!-- Logo -->
+        <a href="#home" class="brand-wrapper" id="brand-logo-link" aria-label="EasyBuy Home">
+          <div class="brand-logo-icon" aria-hidden="true"><svg class="svg-icon svg-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+          <div>
+            <div class="brand-name" data-i18n="appTitle">EasyBuy</div>
+            <div class="brand-subtext" data-i18n="appTagline">Fresh in 10-15 Mins</div>
+          </div>
+        </a>
+
+        <!-- Location Selector -->
+        <div class="location-picker-chip" id="location-chip" role="button" tabindex="0" title="Delivery location">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="location-picker-text">
+            <span class="location-text-title" data-i18n="defaultLocation">Pune, MH</span>
+            <span class="location-arrow">▾</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prominent Header Search Bar with Voice Input -->
+      <div class="header-search-form" role="search">
+        <span class="search-icon-prefix" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <input 
+          type="search" 
+          class="search-input-box" 
+          id="search-input" 
+          placeholder="Search for products..." 
+          data-i18n-placeholder="searchPlaceholder"
+          aria-label="Search fresh groceries and daily essentials"
+        >
+        <button type="button" class="btn-voice-header" id="btn-voice-search" aria-label="Speak to search products" title="Voice Search">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </button>
+      </div>
+
+      <!-- Desktop Nav & Actions -->
+      <div class="header-actions">
+        <button type="button" class="desktop-nav-link" id="btn-header-tutorial" title="Learn how to shop step-by-step">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Tutorial
+        </button>
+        <button type="button" class="desktop-nav-link" data-nav="track" data-i18n="navTrack">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg> Track Order
+        </button>
+        <button type="button" class="desktop-nav-link" data-nav="account" id="btn-header-account">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="header-user-label" data-i18n="navAccount">Account</span>
+        </button>
+
+        <!-- Cart Button with Live Count Badge -->
+        <button type="button" class="btn-header-cart" data-nav="cart" aria-label="View shopping bag">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="cart-btn-label" data-i18n="navCart">Cart</span>
+          <span class="cart-count-pill" id="cart-badge-desktop">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sub-Header Horizontal Category Bar (Matching Reference) -->
+    <div class="sub-header-bar">
+      <div class="sub-header-container">
+        <button type="button" class="btn-all-categories" id="btn-all-categories" data-nav="shop">
+          <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> All Categories <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sub-header-categories-list">
+          <button type="button" class="sub-cat-chip" data-category="fruits">Fruits</button>
+          <button type="button" class="sub-cat-chip" data-category="vegetables">Vegetables</button>
+          <button type="button" class="sub-cat-chip" data-category="milk">Dairy & Eggs</button>
+          <button type="button" class="sub-cat-chip" data-category="snacks">Snacks</button>
+          <button type="button" class="sub-cat-chip" data-category="household">Household</button>
+          <button type="button" class="sub-cat-chip" data-category="grains">Bakery & Staples</button>
+          <button type="button" class="sub-cat-chip" data-category="all" data-nav="shop">More ▾</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. PRACTICE MODE ACTIVE BANNER (For Senior Practice with ₹500 Play Money) -->
+  <div class="practice-indicator" id="practice-banner" role="status">
+    <span id="practice-banner-text" data-i18n="practiceBannerText">
+      <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg> PRACTICE MODE ACTIVE: Using Virtual Wallet (₹500.00 Balance). Safe demonstration.
+    </span>
+    <button type="button" class="btn-pill" id="btn-exit-practice" style="background:#ffffff; color:#1e1b4b; font-weight:800;" data-i18n="exitPracticeBtn">
+      Exit Practice Mode
+    </button>
+  </div>
+
+  <!-- 4. GUIDED WALKTHROUGH OVERLAY ("Teach Me How to Shop") -->
+  <div class="guided-tour-banner" id="guided-tour-box" role="dialog" aria-modal="true" aria-labelledby="guided-step-indicator">
+    <div class="guided-step-counter" id="guided-step-indicator">STEP 1 OF 6</div>
+    <div class="guided-instruction" id="guided-step-text">
+      Welcome! Look at the categories below. Let's start by browsing products.
+    </div>
+    <div class="guided-controls">
+      <button type="button" class="btn-secondary" id="btn-guided-prev" data-i18n="guidedPrevBtn">⬅️ Previous</button>
+      <div style="display:flex; gap: 8px;">
+        <button type="button" class="btn-secondary" id="btn-guided-skip" data-i18n="guidedSkipBtn">Skip Tutorial</button>
+        <button type="button" class="btn-primary-large" id="btn-guided-next" style="padding: 8px 18px; min-height: 42px;" data-i18n="guidedNextBtn">Next Step <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. MAIN APPLICATION CONTAINER (Multi-view Tabbed Router) -->
+  <main class="app-container" id="main-content">
+
+    <!-- ========================================================
+         VIEW 1: WELCOME & ONBOARDING (Mandatory Entry Flow Screen)
+         ======================================================== -->
+    <section class="view-section" id="view-welcome" aria-labelledby="welcome-hero-title">
+      <div class="welcome-container">
+        <div class="welcome-hero-card">
+          <div class="welcome-hero-img-wrap">
+            <img src="assets/images/welcome_hero.jpg" alt="Fresh Farm Produce" class="welcome-hero-img" onerror="this.src='assets/images/banner_fresh.jpg';">
+            <div class="welcome-hero-overlay">
+              <span class="welcome-badge">
+                <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Fresh & Fast Delivery
+              </span>
+            </div>
+          </div>
+          
+          <div class="welcome-content-body">
+            <div class="welcome-brand-row">
+              <div class="brand-logo-icon" aria-hidden="true">
+                <svg class="svg-icon svg-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span class="brand-name">EasyBuy</span>
+            </div>
+
+            <h1 class="welcome-title" id="welcome-hero-title">Welcome to EasyBuy</h1>
+            <p class="welcome-subtitle">Fresh Groceries Delivered to Your Doorstep.</p>
+            <p class="welcome-desc">
+              Experience farm-fresh fruits, crisp vegetables, pure dairy, wholesome snacks and daily kitchen essentials delivered to your door in 10-15 minutes.
+            </p>
+
+            <div class="welcome-features-grid">
+              <div class="welcome-feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                </div>
+                <div>
+                  <div class="feature-name">10-15 Min Delivery</div>
+                  <div class="feature-sub">Superfast from local hubs</div>
+                </div>
+              </div>
+
+              <div class="welcome-feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                  <div class="feature-name">100% Quality Checked</div>
+                  <div class="feature-sub">Direct farm harvest</div>
+                </div>
+              </div>
+
+              <div class="welcome-feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="m4.93 10.93 4.24-4.24a4 4 0 0 1 5.66 0l4.24 4.24"/><path d="M8 12h8"/><path d="m14 16 2.5 5"/><path d="m10 16-2.5 5"/></svg>
+                </div>
+                <div>
+                  <div class="feature-name">Senior Friendly</div>
+                  <div class="feature-sub">Voice search & big text</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="welcome-actions">
+              <button type="button" class="btn-primary-large btn-welcome-cta" id="btn-welcome-get-started">
+                Get Started
+                <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <div class="welcome-secondary-row">
+                <span>Already have an account?</span>
+                <button type="button" class="welcome-login-link" id="link-welcome-login">Log In</button>
+              </div>
+              <button type="button" class="btn-secondary btn-welcome-guest" id="btn-welcome-guest" style="width:100%; margin-top:8px;">
+                Explore Store as Guest
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 1: HOME (Matching Reference Image)
+         ======================================================== -->
+    <section class="view-section active" id="view-home" aria-labelledby="home-welcome-title">
+      
+      <!-- Hero Promotional Banner (Matching Reference Image) -->
+      <div class="hero-reference-card">
+        <div class="hero-left-content">
+          <h1 class="hero-main-title" id="home-welcome-title" data-i18n="welcomeTitle">
+            Fresh Groceries<br>Delivered at Your Doorstep
+          </h1>
+          <div class="hero-discount-badge">
+            Up to <span class="highlight-percent">30% OFF</span>
+          </div>
+          <button type="button" class="btn-hero-shop-pill" id="btn-home-start-shop">
+            Shop Now <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <div class="hero-carousel-dots" aria-hidden="true">
+            <span class="hero-dot active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+          </div>
+        </div>
+        <div class="hero-right-visual">
+          <img src="assets/images/hero_bag.jpg" alt="Fresh Groceries in Shopping Bag" class="hero-grocery-bag-photo">
+        </div>
+      </div>
+
+      <!-- Trust Badges Bar (Matching Reference Image) -->
+      <div class="trust-badges-bar">
+        <div class="trust-badge-card">
+          <span class="trust-badge-icon" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+          <div>
+            <div class="trust-badge-title">Free Delivery</div>
+            <div class="trust-badge-sub">On orders above ₹499</div>
+          </div>
+        </div>
+        <div class="trust-badge-card">
+          <span class="trust-badge-icon" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div>
+            <div class="trust-badge-title">100% Fresh</div>
+            <div class="trust-badge-sub">Guaranteed</div>
+          </div>
+        </div>
+        <div class="trust-badge-card">
+          <span class="trust-badge-icon" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
+          <div>
+            <div class="trust-badge-title">24x7 Support</div>
+            <div class="trust-badge-sub">We're here to help</div>
+          </div>
+        </div>
+        <div class="trust-badge-card">
+          <span class="trust-badge-icon" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+          <div>
+            <div class="trust-badge-title">Easy Returns</div>
+            <div class="trust-badge-sub">Hassle-free</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop by Category Section (Matching Reference Image) -->
+      <div class="categories-section-wrapper">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title-main" data-i18n="categoriesTitle">Shop by Category</h2>
+            <p class="section-subtitle-main" data-i18n="categoriesSubtitle">Handpicked fresh farm produce and daily essentials</p>
+          </div>
+          <button type="button" class="link-see-all" id="btn-see-all-categories" data-i18n="allCategoriesBtn">See All →</button>
+        </div>
+
+        <div class="category-cards-grid" id="home-categories-grid" role="list">
+          <!-- Populated dynamically by script.js from CATEGORIES with circular image thumbnails -->
+        </div>
+      </div>
+
+      <!-- Best Sellers Section (Matching Reference Image) -->
+      <div class="products-section-wrapper">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title-main" data-i18n="sectionBestsellersTitle">Best Sellers</h2>
+            <p class="section-subtitle-main" data-i18n="sectionBestsellersSubtitle">Top picks loved by our customers</p>
+          </div>
+          <button type="button" class="link-see-all" onclick="switchView('shop')">See All →</button>
+        </div>
+        <div class="products-grid-modern" id="home-bestsellers-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Today's Mega Deals & Discounts Section -->
+      <div class="products-section-wrapper">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title-main" data-i18n="sectionDealsTitle">Special Offers & Discounts</h2>
+            <p class="section-subtitle-main" data-i18n="sectionDealsSubtitle">Save more on fresh daily staples</p>
+          </div>
+          <button type="button" class="link-see-all" onclick="switchView('shop')">Explore All Deals →</button>
+        </div>
+        <div class="products-grid-modern" id="home-deals-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Farm Fresh Harvest Section -->
+      <div class="products-section-wrapper">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title-main" data-i18n="sectionFreshTitle">Farm Fresh Harvest</h2>
+            <p class="section-subtitle-main" data-i18n="sectionFreshSubtitle">Direct from local farms every morning</p>
+          </div>
+          <button type="button" class="link-see-all" onclick="switchView('shop')">Browse Harvest →</button>
+        </div>
+        <div class="products-grid-modern" id="home-fresh-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 2: SHOP / PRODUCT CATALOGUE (Matching Reference Image)
+         ======================================================== -->
+    <section class="view-section" id="view-shop" aria-labelledby="shop-heading">
+      
+      <!-- Voice Search Feedback Alert -->
+      <div class="search-alert" id="search-alert-box" role="status"></div>
+
+      <!-- Two-Column Layout: Sidebar Filters + Main Product Grid -->
+      <div class="catalogue-layout-container">
+        
+        <!-- Left Sidebar Filters -->
+        <aside class="catalogue-filters-sidebar" aria-label="Product Filters">
+          <div class="filters-header-row">
+            <h3 class="filters-heading">Filters</h3>
+            <button type="button" id="btn-filters-clear" class="btn-clear-link">Clear All</button>
+          </div>
+
+          <!-- Categories Checkboxes -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Categories</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="fruits" checked>
+                <span>Fruits (4)</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="vegetables" checked>
+                <span>Vegetables (4)</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="milk" checked>
+                <span>Dairy & Eggs (4)</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="snacks" checked>
+                <span>Snacks (4)</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="household" checked>
+                <span>Household (4)</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" name="filter-cat" value="grains" checked>
+                <span>Bakery & Staples (4)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Price Range</h4>
+            <div class="filter-options-list">
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-price" value="all" checked>
+                <span>All Prices</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-price" value="0-50">
+                <span>₹0 - ₹50</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-price" value="50-100">
+                <span>₹50 - ₹100</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-price" value="100-200">
+                <span>₹100 - ₹200</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-price" value="200+">
+                <span>₹200+</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Ratings Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Ratings</h4>
+            <div class="filter-options-list">
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-rating" value="all" checked>
+                <span>All Ratings</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-rating" value="4.5">
+                <span><svg class="svg-icon svg-xs svg-star" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.5 & above</span>
+              </label>
+              <label class="filter-radio-row">
+                <input type="radio" name="filter-rating" value="4.0">
+                <span><svg class="svg-icon svg-xs svg-star" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.0 & above</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Offers Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Offers</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-row">
+                <input type="checkbox" id="filter-offer-deals">
+                <span>Special Offer</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" id="filter-offer-bestsellers">
+                <span>Best Seller</span>
+              </label>
+              <label class="filter-checkbox-row">
+                <input type="checkbox" id="filter-offer-fresh">
+                <span>New Arrival / Fresh</span>
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Main Catalogue Content -->
+        <div class="catalogue-main-content">
+          <div class="catalogue-heading-bar">
+            <div>
+              <h1 class="catalogue-title" id="shop-heading">All Groceries</h1>
+              <p class="catalogue-subtitle" id="catalogue-active-subtitle">Fresh and juicy produce for a healthy you</p>
+            </div>
+            <div class="catalogue-sort-wrapper">
+              <label for="select-sort" class="sort-label">Sort by:</label>
+              <select id="select-sort" class="select-sort">
+                <option value="popularity">Popularity</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Rating</option>
+                <option value="discount">Discount</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Category Quick Filter Pills -->
+          <div class="filter-pills-row" role="tablist" aria-label="Filter products by category">
+            <button type="button" class="filter-pill active" data-category="all" role="tab" aria-selected="true" data-i18n="allFilter">All Items</button>
+            <button type="button" class="filter-pill" data-category="fruits" role="tab" aria-selected="false" data-i18n="filterFruits">Fruits</button>
+            <button type="button" class="filter-pill" data-category="vegetables" role="tab" aria-selected="false" data-i18n="filterVegetables">Vegetables</button>
+            <button type="button" class="filter-pill" data-category="milk" role="tab" aria-selected="false" data-i18n="filterMilk">Dairy & Eggs</button>
+            <button type="button" class="filter-pill" data-category="snacks" role="tab" aria-selected="false" data-i18n="filterSnacks">Snacks</button>
+            <button type="button" class="filter-pill" data-category="household" role="tab" aria-selected="false" data-i18n="filterHousehold">Household</button>
+            <button type="button" class="filter-pill" data-category="grains" role="tab" aria-selected="false" data-i18n="filterGrains">Bakery & Staples</button>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="products-grid-modern" id="products-catalogue-grid" role="list">
+            <!-- Rendered dynamically by script.js from PRODUCTS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 3: SHOPPING CART (Matching Reference Image)
+         ======================================================== -->
+    <section class="view-section" id="view-cart" aria-labelledby="cart-heading">
+      
+      <div class="cart-screen-header">
+        <h1 class="section-title-main" id="cart-heading">Your Cart</h1>
+        <button type="button" class="btn-clear-cart-link" id="btn-clear-cart">Clear Cart</button>
+      </div>
+
+      <!-- 5-Second Undo Notification Banner (Matching Reference Image) -->
+      <div class="cart-undo-banner" id="cart-undo-banner" style="display:none;" role="status">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="cart-undo-text">Item removed</span>
+        </div>
+        <button type="button" class="btn-undo-action" id="btn-cart-undo">Undo</button>
+      </div>
+
+      <div id="cart-content-wrapper">
+        <!-- Populated dynamically by script.js -->
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 4: 3-STEP CHECKOUT WIZARD
+         ======================================================== -->
+    <section class="view-section" id="view-checkout" aria-labelledby="checkout-heading">
+      <!-- Checkout Stepper Bar -->
+      <div class="checkout-stepper-header" role="navigation" aria-label="Checkout Progress">
+        <div class="step-indicator-item active" id="wizard-step-1">
+          <div class="step-number">1</div>
+          <span data-i18n="step1Title">1. Review Bag</span>
+        </div>
+        <div class="step-indicator-item" id="wizard-step-2">
+          <div class="step-number">2</div>
+          <span data-i18n="step2Title">2. Delivery Address</span>
+        </div>
+        <div class="step-indicator-item" id="wizard-step-3">
+          <div class="step-number">3</div>
+          <span data-i18n="step3Title">3. Payment & Confirm</span>
+        </div>
+      </div>
+
+      <!-- Step 1 Panel: Order Summary Confirmation -->
+      <div class="checkout-panel active" id="checkout-panel-step-1">
+        <h2 class="section-title-main" data-i18n="step1Title" style="margin-bottom:12px;">1. Review Your Groceries</h2>
+        <div id="checkout-step1-items-summary" style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:16px; border:1px solid var(--border-color);">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="checkout-nav-buttons">
+          <button type="button" class="btn-secondary" id="btn-checkout-back-to-shop" data-i18n="addMoreItemsBtn">Add More Items</button>
+          <button type="button" class="btn-primary-large" id="btn-checkout-go-step-2" data-i18n="proceedAddressBtn">Next: Delivery Address <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 2 Panel: Delivery Address -->
+      <div class="checkout-panel" id="checkout-panel-step-2">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+          <h2 class="section-title-main" data-i18n="step2Title">2. Where Should We Deliver?</h2>
+          <button type="button" class="btn-pill" id="btn-autofill-address" style="background:var(--primary-subtle); border-color:var(--primary); color:var(--primary);" data-i18n="autoFillAddressBtn">
+            <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Auto-Fill Sample Address
+          </button>
+        </div>
+
+        <form id="form-address" onsubmit="return false;">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px;">
+            <div class="form-group">
+              <label for="input-fullname" class="form-label" data-i18n="fullNameLabel">Full Name:</label>
+              <input type="text" id="input-fullname" class="form-input" placeholder="e.g. Ramesh S. Joshi" value="Ramesh S. Joshi" required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-phone" class="form-label" data-i18n="phoneLabel">Mobile Number (For Delivery Updates):</label>
+              <input type="tel" id="input-phone" class="form-input" placeholder="e.g. 9822012345" value="9822012345" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="input-street" class="form-label" data-i18n="streetAddressLabel">House / Flat No., Apartment & Street:</label>
+            <input type="text" id="input-street" class="form-input" placeholder="e.g. Flat 302, Sai Anand Apts, Near Ganesh Mandir, Karve Road" value="Flat 302, Sai Anand Apts, Near Ganesh Mandir, Karve Road" required>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+            <div class="form-group">
+              <label for="input-city" class="form-label" data-i18n="cityLabel">City:</label>
+              <input type="text" id="input-city" class="form-input" placeholder="Pune" value="Pune" required>
+            </div>
+            <div class="form-group">
+              <label for="input-pincode" class="form-label" data-i18n="pincodeLabel">PIN Code:</label>
+              <input type="text" id="input-pincode" class="form-input" placeholder="411038" value="411038" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="select-delivery-slot" class="form-label" data-i18n="deliverySlotLabel">Preferred Delivery Time:</label>
+            <select id="select-delivery-slot" class="form-input" style="font-weight:700;">
+              <option value="superfast" selected>Superfast Express (Within 15 minutes)</option>
+              <option value="morning">Morning Slot (7:00 AM - 9:00 AM)</option>
+              <option value="afternoon">Afternoon Slot (12:00 PM - 2:00 PM)</option>
+              <option value="evening">Evening Slot (5:00 PM - 7:00 PM)</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="checkout-nav-buttons">
+          <button type="button" class="btn-secondary" id="btn-address-back-step-1" data-i18n="backToBagBtn">⬅️ Back to Bag</button>
+          <button type="button" class="btn-primary-large" id="btn-address-go-step-3" data-i18n="proceedPaymentBtn">Next: Choose Payment <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 3 Panel: Payment & Order Confirmation -->
+      <div class="checkout-panel" id="checkout-panel-step-3">
+        <h2 class="section-title-main" data-i18n="step3Title" style="margin-bottom:12px;">3. Payment Method</h2>
+
+        <!-- Senior Care Notice -->
+        <div style="background:var(--primary-subtle); border:1.5px solid #a7f3d0; border-radius:var(--radius-md); padding:12px 16px; margin-bottom:16px; color:#065f46; font-size:0.92rem;">
+          <svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> <strong>Recommended for Seniors:</strong> Cash on Delivery (COD) lets you inspect groceries at your doorstep before paying. No passwords or OTP needed.
+        </div>
+
+        <div class="payment-options-grid" role="radiogroup" aria-label="Select Payment Method">
+          <!-- COD Card -->
+          <label class="payment-option-card selected" id="pay-card-cod">
+            <input type="radio" name="payment-method" value="cod" checked>
+            <div class="pay-icon" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div>
+            <div>
+              <div class="pay-title" data-i18n="payCodTitle">Cash on Delivery (COD)</div>
+              <div class="pay-desc" data-i18n="payCodDesc">Pay cash or UPI scan when grocery arrives at doorstep. Safe & simple.</div>
+            </div>
+          </label>
+
+          <!-- UPI Card -->
+          <label class="payment-option-card" id="pay-card-upi">
+            <input type="radio" name="payment-method" value="upi">
+            <div class="pay-icon" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
+            <div>
+              <div class="pay-title" data-i18n="payUpiTitle">UPI (GPay / PhonePe / Paytm)</div>
+              <div class="pay-desc" data-i18n="payUpiDesc">Demo mode: Scan QR on arrival or pay now.</div>
+            </div>
+          </label>
+
+          <!-- Card / ATM Card -->
+          <label class="payment-option-card" id="pay-card-card">
+            <input type="radio" name="payment-method" value="card">
+            <div class="pay-icon" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+            <div>
+              <div class="pay-title" data-i18n="payCardTitle">Debit / Credit / ATM Card</div>
+              <div class="pay-desc" data-i18n="payCardDesc">Demo mode: Simulation card swipe at doorstep.</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Final Bill Summary Recap -->
+        <div class="cart-summary-sidebar" id="checkout-final-summary" style="margin:20px 0;">
+          <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:10px;" data-i18n="finalBillSummaryTitle">Final Bill Summary</h3>
+          <div id="checkout-delivery-address-summary" style="margin-bottom:12px; font-weight:600; color:var(--text-main);"></div>
+          <div id="checkout-payment-summary-lines"></div>
+        </div>
+
+        <div class="checkout-nav-buttons">
+          <button type="button" class="btn-secondary" id="btn-pay-back-step-2" data-i18n="backToAddressBtn">⬅️ Back to Address</button>
+          <button type="button" class="btn-primary-large" id="btn-confirm-place-order" data-i18n="placeOrderBtn"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Place Order Safely</button>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 5: ORDER CONFIRMATION (Post-Purchase Success Screen)
+         ======================================================== -->
+    <section class="view-section" id="view-confirmation" aria-labelledby="confirm-heading">
+      <div class="confirmation-container">
+        <div class="order-success-hero-box">
+          <div style="margin-bottom:8px;" aria-hidden="true"><svg class="svg-icon svg-xl" viewBox="0 0 24 24" fill="none" stroke="#138A36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h1 class="hero-heading" id="confirm-heading" data-i18n="orderSuccessTitle" style="font-size:1.7rem; color:var(--primary);">
+            Order Placed Successfully!
+          </h1>
+          <p class="hero-subhead" data-i18n="orderSuccessSubtitle" style="margin-bottom:14px;">
+            Sit back and relax. Your groceries are being carefully packed at our nearest hub.
+          </p>
+          <div style="display:inline-flex; gap:20px; flex-wrap:wrap; justify-content:center; font-weight:800; font-size:1.05rem;">
+            <div><span data-i18n="orderIdLabel">Order ID:</span> <span id="confirm-order-id" style="color:var(--primary);">#EB-8842</span></div>
+            <div><span data-i18n="estDeliveryLabel">Estimated Delivery:</span> <span id="confirm-delivery-time" data-i18n="estDeliveryValue">Today within 15 minutes</span></div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:16px; margin:20px 0; border:1px solid var(--border-color);">
+          <div style="font-weight:800; font-size:1rem; margin-bottom:6px;">Delivery Details:</div>
+          <div id="confirm-address-display" style="font-size:0.92rem; color:var(--text-body);"></div>
+          <div style="margin-top:8px; font-weight:700; color:var(--primary); font-size:0.9rem;">
+            Total Amount: <span id="confirm-amount-display">₹0</span> (Cash on Delivery)
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
+          <button type="button" class="btn-primary-large" id="btn-confirm-track-order" style="min-width:200px;">
+            <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg> Track Live Order
+          </button>
+          <button type="button" class="btn-secondary" id="btn-confirm-continue-shop" style="min-width:200px;">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 6: ORDER TRACKING (Live Progress Stepper)
+         ======================================================== -->
+    <section class="view-section" id="view-track" aria-labelledby="track-heading">
+      <div class="tracking-card-container">
+        
+        <div class="order-success-hero-box" id="order-success-banner">
+          <div style="margin-bottom: 6px;" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+          <h1 class="hero-heading" id="track-heading" data-i18n="trackingTitle" style="font-size:1.6rem; color:var(--primary);">
+            Live Order Status
+          </h1>
+          <p class="hero-subhead" data-i18n="estDeliveryValue" style="margin-bottom: 12px;">
+            Today within 15 minutes • Fresh at your doorstep
+          </p>
+          <div style="display:inline-flex; gap:20px; flex-wrap:wrap; justify-content:center; font-weight:800; font-size:1.05rem;">
+            <div><span data-i18n="orderIdLabel">Order ID:</span> <span id="track-order-id" style="color:var(--primary);">#EB-8842</span></div>
+            <div><span data-i18n="estDeliveryLabel">ETA:</span> <span id="track-delivery-time" data-i18n="estDeliveryValue">15 mins</span></div>
+          </div>
+        </div>
+
+        <!-- Rider Partner Card -->
+        <div class="rider-info-card">
+          <div class="rider-left">
+            <div class="rider-avatar" aria-hidden="true"><svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+            <div>
+              <div style="font-weight:900; font-size:1rem;" data-i18n="riderName">Santosh M. (Verified Delivery Partner)</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Vaccinated • 5,200+ Safe Deliveries • Speaks Hindi & Marathi</div>
+            </div>
+          </div>
+          <a href="tel:9876543210" class="btn-pill" style="background:#ffffff; color:var(--primary); border-color:var(--primary); font-weight:800;" data-i18n="riderPhone">
+            <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Rider
+          </a>
+        </div>
+
+        <!-- Demo Simulation Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin: 18px 0; background:var(--bg-subtle); padding:12px 16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <div>
+            <span style="font-weight:800; font-size:1rem;" data-i18n="trackingTitle">Live Order Status</span>
+            <div style="font-size:0.82rem; color:var(--text-muted);">Stages update automatically or step-by-step for presentation.</div>
+          </div>
+          <button type="button" class="btn-pill" id="btn-simulate-tracking" style="background:var(--primary); color:#ffffff; border-color:var(--primary);" data-i18n="simulateNextStatusBtn">
+            ⏩ Simulate Next Step (Demo)
+          </button>
+        </div>
+
+        <!-- Timeline Stepper -->
+        <div class="timeline-stepper" id="tracking-timeline" role="list">
+          <div class="timeline-step completed" id="track-step-1">
+            <div class="timeline-node" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="timeline-step-title" data-i18n="statusOrdered">1. Order Received</div>
+            <div class="timeline-step-desc" data-i18n="statusOrderedDesc">Your grocery list is received at our local hub.</div>
+          </div>
+
+          <div class="timeline-step current" id="track-step-2">
+            <div class="timeline-node" aria-hidden="true">2</div>
+            <div class="timeline-step-title" data-i18n="statusPacked">2. Carefully Packed</div>
+            <div class="timeline-step-desc" data-i18n="statusPackedDesc">Fresh items are washed, packed and checked for quality.</div>
+          </div>
+
+          <div class="timeline-step" id="track-step-3">
+            <div class="timeline-node" aria-hidden="true">3</div>
+            <div class="timeline-step-title" data-i18n="statusShipped">3. Out for Delivery</div>
+            <div class="timeline-step-desc" data-i18n="statusShippedDesc">Rider Santosh M. (⭐ 4.9) is on his way to your home.</div>
+          </div>
+
+          <div class="timeline-step" id="track-step-4">
+            <div class="timeline-node" aria-hidden="true">4</div>
+            <div class="timeline-step-title" data-i18n="statusDelivered">4. Delivered Safely</div>
+            <div class="timeline-step-desc" data-i18n="statusDeliveredDesc">Items handed over safely at your doorstep. Thank you!</div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:24px;">
+          <button type="button" class="btn-primary-large" id="btn-track-shop-again" data-i18n="trackNewOrderBtn">
+            Shop for More Items
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 7: LOGIN SCREEN (Matching Reference Image Bottom-Center)
+         ======================================================== -->
+    <section class="view-section" id="view-login" aria-labelledby="login-heading">
+      <div class="auth-split-container">
+        
+        <!-- Left Column: Visual Brand Poster "Good Food. Good Mood." -->
+        <div class="auth-split-visual" style="background-image: url('assets/images/login_basket.jpg');">
+          <div class="auth-visual-overlay">
+            <h2 class="auth-visual-slogan">Good Food.<br>Good Mood.</h2>
+          </div>
+        </div>
+
+        <!-- Right Column: Login Card -->
+        <div class="auth-split-card">
+          <div class="auth-brand-logo"><svg class="svg-icon svg-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> EasyBuy</div>
+          <h1 class="auth-title" id="login-heading" data-i18n="loginTitle">Welcome Back!</h1>
+          <p class="auth-subtitle" data-i18n="loginSubtitle">Login to continue shopping</p>
+
+          <form id="form-login" onsubmit="return false;">
+            <div class="form-group">
+              <label for="login-email" class="form-label" data-i18n="emailOrMobileLabel">Email Address or Mobile</label>
+              <div class="input-with-icon">
+                <span class="input-prefix-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                <input type="text" id="login-email" class="form-input" placeholder="Enter your email or mobile" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="login-password" class="form-label" data-i18n="passwordLabel">Password</label>
+              <div class="input-with-icon">
+                <span class="input-prefix-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required>
+                <button type="button" class="btn-toggle-pw" id="btn-toggle-password" aria-label="Toggle password visibility"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+              </div>
+            </div>
+
+            <div class="auth-row-between">
+              <label class="checkbox-label">
+                <input type="checkbox" id="login-remember" checked>
+                <span data-i18n="rememberMeLabel">Remember Me</span>
+              </label>
+              <span class="auth-link" id="link-to-forgot" data-i18n="forgotPasswordLink">Forgot Password?</span>
+            </div>
+
+            <button type="button" class="btn-primary-large" id="btn-submit-login" style="width:100%;" data-i18n="loginBtn">
+              Login
+            </button>
+
+            <div class="auth-divider"><span>or</span></div>
+
+            <button type="button" class="btn-google-login" id="btn-google-login">
+              <svg class="google-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              <span>Continue with Google</span>
+            </button>
+            
+            <button type="button" class="btn-secondary" id="btn-quick-demo-login" style="width:100%; margin-top:10px;" data-i18n="demoLoginBtn">
+              <svg class="svg-icon svg-xs" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Quick Demo Login (Ramesh Joshi)
+            </button>
+          </form>
+
+          <div class="auth-footer-prompt">
+            <span data-i18n="noAccountText">Don't have an account?</span>
+            <span class="auth-link" id="link-to-signup" data-i18n="signUpLink">Sign Up</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 8: SIGN UP SCREEN
+         ======================================================== -->
+    <section class="view-section" id="view-signup" aria-labelledby="signup-heading">
+      <div class="auth-wrapper">
+        <div class="auth-header">
+          <div class="auth-header-logo" aria-hidden="true"><svg class="svg-icon svg-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+          <h1 class="auth-title" id="signup-heading" data-i18n="signUpTitle">Create Your Account</h1>
+          <p class="auth-subtitle" data-i18n="signUpSubtitle">Join EasyBuy for fresh groceries delivered at your doorstep.</p>
+        </div>
+
+        <form id="form-signup" onsubmit="return false;">
+          <div class="form-group">
+            <label for="signup-name" class="form-label" data-i18n="fullNameLabel">Full Name:</label>
+            <input type="text" id="signup-name" class="form-input" placeholder="e.g. Ramesh S. Joshi" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email" class="form-label">Email Address:</label>
+            <input type="email" id="signup-email" class="form-input" placeholder="e.g. ramesh@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-phone" class="form-label" data-i18n="phoneLabel">Mobile Number:</label>
+            <input type="tel" id="signup-phone" class="form-input" placeholder="e.g. 9822012345" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-password" class="form-label" data-i18n="passwordLabel">Password:</label>
+            <input type="password" id="signup-password" class="form-input" placeholder="Choose a password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-confirm-password" class="form-label" data-i18n="confirmPasswordLabel">Confirm Password:</label>
+            <input type="password" id="signup-confirm-password" class="form-input" placeholder="Repeat your password" required>
+          </div>
+
+          <button type="button" class="btn-primary-large" id="btn-submit-signup" style="width:100%;" data-i18n="createAccountBtn">
+            Create Free Account
+          </button>
+        </form>
+
+        <div class="auth-footer-prompt" style="text-align:center; margin-top:16px;">
+          <span data-i18n="alreadyHaveAccountText">Already have an account?</span>
+          <span class="auth-link" id="link-to-login" data-i18n="signInLink">Sign In Here</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 9: FORGOT PASSWORD
+         ======================================================== -->
+    <section class="view-section" id="view-forgot" aria-labelledby="forgot-heading">
+      <div class="auth-wrapper">
+        <div class="auth-header">
+          <div class="auth-header-logo" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></div>
+          <h1 class="auth-title" id="forgot-heading" data-i18n="forgotTitle">Reset Your Password</h1>
+          <p class="auth-subtitle" data-i18n="forgotSubtitle">Enter your registered email or mobile to receive password reset guidance.</p>
+        </div>
+
+        <div id="forgot-alert-box" style="display:none; background:var(--primary-light); color:var(--primary); padding:10px 14px; border-radius:var(--radius-md); font-weight:700; margin-bottom:14px;">
+          Demo Reset: A simulation reset link has been prepared. You may now return to login.
+        </div>
+
+        <form id="form-forgot" onsubmit="return false;">
+          <div class="form-group">
+            <label for="forgot-email" class="form-label" data-i18n="emailOrMobileLabel">Email or Mobile Number:</label>
+            <input type="text" id="forgot-email" class="form-input" placeholder="e.g. ramesh@example.com / 9822012345" required>
+          </div>
+
+          <button type="button" class="btn-primary-large" id="btn-submit-forgot" style="width:100%;" data-i18n="sendResetBtn">
+            Send Reset Instructions (Demo)
+          </button>
+        </form>
+
+        <div class="auth-footer-prompt" style="text-align:center; margin-top:16px;">
+          <span class="auth-link" id="link-back-login" data-i18n="backToLoginLink">⬅️ Back to Login</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VIEW 10: USER ACCOUNT & PROFILE
+         ======================================================== -->
+    <section class="view-section" id="view-account" aria-labelledby="account-heading">
+      <div class="account-container">
+        
+        <!-- Profile Banner -->
+        <div class="account-profile-card">
+          <div class="account-user-meta">
+            <div class="account-avatar" id="account-avatar-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div>
+              <h1 class="section-title-main" id="account-user-name" style="margin-bottom:2px;">Ramesh S. Joshi</h1>
+              <div style="font-size:0.88rem; color:var(--text-muted);" id="account-user-contact">9822012345 • ramesh.joshi@example.com</div>
+              <span class="verified-user-badge" style="background:#dcfce7; color:#15803d; border:1px solid #86efac; margin-top:4px; display:inline-block; font-weight:700; padding:2px 8px; border-radius:4px; font-size:0.8rem;">
+                <svg class="svg-icon svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Verified Senior Citizen Shopper
+              </span>
+            </div>
+          </div>
+          <button type="button" class="btn-pill" id="btn-account-logout" style="border-color:#ef4444; color:#ef4444; font-weight:800;" data-i18n="logoutBtn">
+            Log Out
+          </button>
+        </div>
+
+        <!-- 3 Account Cards Grid -->
+        <div class="account-grid-sections">
+          <!-- Past Orders -->
+          <div class="account-section-card">
+            <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:12px;" data-i18n="myOrdersTab"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg> Past Orders</h3>
+            <div id="account-orders-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Saved Addresses -->
+          <div class="account-section-card">
+            <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:12px;" data-i18n="addressesTab"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Saved Addresses</h3>
+            <div id="account-address-box" style="background:var(--bg-subtle); padding:12px 14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+              <strong>Home (Default)</strong><br>
+              <span style="font-size:0.9rem; color:var(--text-body);">Flat 302, Sai Anand Apts, Near Ganesh Mandir, Karve Road, Pune - 411038</span>
+            </div>
+          </div>
+
+          <!-- Preferences & Senior Support -->
+          <div class="account-section-card" style="grid-column: 1 / -1;">
+            <h3 style="font-size:1.15rem; font-weight:900; margin-bottom:12px;" data-i18n="settingsTab">Preferences & Assistance</h3>
+            <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+              <div style="background:var(--primary-subtle); padding:10px 16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+                <strong>Practice Wallet:</strong> <span id="account-practice-balance" style="color:var(--primary); font-weight:900;">₹500.00</span>
+                <button type="button" class="btn-pill" id="btn-reset-practice-wallet" style="margin-left:10px; font-size:0.75rem;">Reset ₹500</button>
+              </div>
+              <button type="button" class="btn-pill" onclick="startGuidedTour()"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Teach Me How to Shop</button>
+              <button type="button" class="btn-pill" onclick="openHelpModal()"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg> Contextual Help</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 6. PRODUCT DETAILS MODAL (Matching Reference Image Bottom-Left 1) -->
+  <div class="modal-overlay" id="product-detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header-row">
+        <h2 class="modal-title-main" id="detail-modal-title">Product Details</h2>
+        <button type="button" class="btn-pill" id="btn-close-detail-modal" aria-label="Close product details">&times;</button>
+      </div>
+      <div id="product-detail-content">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. DEDICATED ACCESSIBILITY & ASSISTANCE DRAWER / MODAL (Matching Reference Image Bottom-Right) -->
+  <div class="modal-overlay" id="a11y-modal" role="dialog" aria-modal="true" aria-labelledby="a11y-modal-title">
+    <div class="modal-dialog a11y-drawer-dialog" style="max-width:440px;">
+      <div class="modal-header-row">
+        <h2 class="modal-title-main" id="a11y-modal-title" data-i18n="a11yMenuTitle">
+          Accessibility Settings
+        </h2>
+        <button type="button" class="btn-close-drawer" id="btn-close-a11y-modal" aria-label="Close accessibility settings">&times;</button>
+      </div>
+
+      <div class="a11y-panel-body">
+        
+        <!-- Language Section: Radio Pills -->
+        <div class="a11y-section-block">
+          <div class="a11y-block-title"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Language</div>
+          <div class="lang-pills-row" role="radiogroup" aria-label="Website Language">
+            <button type="button" class="lang-pill-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-pill-btn" data-lang="hi">हिंदी</button>
+            <button type="button" class="lang-pill-btn" data-lang="mr">मराठी</button>
+          </div>
+        </div>
+
+        <!-- Text Size Section -->
+        <div class="a11y-section-block">
+          <div class="a11y-block-title" data-i18n="textSizeLabel">Text Size</div>
+          <div class="font-scaler-pills" role="group" aria-label="Text Size Controls">
+            <button type="button" class="font-pill-btn" id="btn-font-decrease" aria-label="Decrease text size" title="Small Text">A-</button>
+            <button type="button" class="font-pill-btn active" id="btn-font-normal" aria-label="Default normal text size" title="Normal Text">A</button>
+            <button type="button" class="font-pill-btn" id="btn-font-increase" aria-label="Increase text size" title="Large Text">A+</button>
+          </div>
+        </div>
+
+        <!-- Feature Toggle Switches -->
+        <div class="a11y-section-block">
+          <!-- High Contrast Mode Toggle -->
+          <div class="a11y-switch-row">
+            <div class="a11y-switch-label">
+              <span class="switch-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span data-i18n="contrastLabel">High Contrast Mode</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="btn-contrast-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- Read Aloud Toggle -->
+          <div class="a11y-switch-row">
+            <div class="a11y-switch-label">
+              <span class="switch-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>
+              <span>Read Aloud</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="btn-read-aloud">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- Voice Search Toggle -->
+          <div class="a11y-switch-row">
+            <div class="a11y-switch-label">
+              <span class="switch-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
+              <span>Voice Search</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="btn-toggle-voice-feature" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Senior Action Pills -->
+        <div class="a11y-section-block a11y-action-pills-list">
+          <button type="button" class="a11y-action-pill" onclick="startGuidedTour(); document.getElementById('a11y-modal').classList.remove('active');">
+            <span class="action-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <span>Guided Tutorial</span>
+          </button>
+          
+          <button type="button" class="a11y-action-pill" onclick="openHelpModal(); document.getElementById('a11y-modal').classList.remove('active');">
+            <span class="action-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg></span>
+            <span>Help & Support</span>
+          </button>
+
+          <button type="button" class="a11y-action-pill" onclick="startPracticeModeDirect(); document.getElementById('a11y-modal').classList.remove('active');">
+            <span class="action-icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg></span>
+            <span>Practice Mode (₹500)</span>
+          </button>
+        </div>
+
+        <!-- Senior Helpline Footer in Drawer -->
+        <div class="a11y-helpline-box">
+          <div style="font-size:0.85rem; font-weight:700; color:#b91c1c;">Free Senior Shopping Helpline:</div>
+          <a href="tel:18000003279" class="a11y-tel-link">
+            <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 1800-000-EASY (1800-000-3279)
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. CONTEXTUAL HELP MODAL ("Help Me on This Page") -->
+  <div class="modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-modal-heading">
+    <div class="modal-dialog">
+      <div class="modal-header-row">
+        <h2 class="modal-title-main" id="help-modal-heading">
+          <svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+          <span data-i18n="helpModalTitle">Easy Help for This Screen</span>
+        </h2>
+        <button type="button" class="btn-pill" id="btn-close-help-modal" aria-label="Close help window" data-i18n="helpCloseBtn">
+          Close
+        </button>
+      </div>
+
+      <div class="modal-body" id="help-modal-content" style="font-size:1rem; line-height:1.7; white-space:pre-line;">
+        <!-- Injected dynamically based on current page -->
+      </div>
+
+      <div style="background-color:#fee2e2; border:1.5px solid #f87171; border-radius:var(--radius-md); padding:14px; margin-top:18px; text-align:center;">
+        <div data-i18n="helpCallBanner">Need to speak with a human? Call our free senior helpline:</div>
+        <a href="tel:18000003279" style="display:inline-block; margin-top:4px; font-size:1.3rem; font-weight:900; color:#b91c1c;" data-i18n="helpCallPhone">
+          1800-000-EASY (1800-000-3279)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. TOAST NOTIFICATIONS & 5-SECOND UNDO CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- 10. MOBILE BOTTOM NAVIGATION BAR (Matching Reference Image) -->
+  <nav class="bottom-nav" aria-label="Mobile Navigation">
+    <button type="button" class="bottom-nav-item active" data-nav="home">
+      <span class="icon" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+      <span data-i18n="navHome">Home</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-nav="shop">
+      <span class="icon" aria-hidden="true"><svg class="svg-icon svg-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg></span>
+      <span data-i18n="navShop">Shop</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-nav="cart">
+      <span class="icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+      <span data-i18n="navCart">Cart</span>
+      <span class="cart-count-pill" id="cart-badge-mobile" style="position:absolute; top:4px; right:20%;">0</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-nav="track">
+      <span class="icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+      <span data-i18n="navTrack">Orders</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-nav="account">
+      <span class="icon" aria-hidden="true"><svg class="svg-icon svg-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span data-i18n="navAccount">Account</span>
+    </button>
+  </nav>
+
+  <!-- 11. FOOTER (Professional Commercial Store) -->
+  <footer class="site-footer">
+    <div style="display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:6px;">
+      <svg class="svg-icon svg-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <strong style="font-size:1.15rem; color:#15803d;">EasyBuy Supermarket</strong>
+    </div>
+    <p class="footer-credits">India's Trusted Online Grocery Supermarket • 10-15 Min Express Delivery</p>
+    <p style="margin-top:4px; font-size:0.82rem; color:var(--text-muted);">Serving Pune, Mumbai, Bengaluru, Delhi NCR & Hyderabad</p>
+    <p style="margin-top:6px; font-size:0.75rem; color:var(--text-light);">Pure Semantic HTML5, CSS3 & JavaScript • 100% Offline-Ready with Local Grocery Photography</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
